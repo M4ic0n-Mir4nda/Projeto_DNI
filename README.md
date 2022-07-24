@@ -1,2 +1,2 @@
-# Projeto_DNI
- Site desenvolvido usando HTML5, CSS e PHP
+# site_dni
+ Site desenvolvido com HTML5, CSS3 e PHP
