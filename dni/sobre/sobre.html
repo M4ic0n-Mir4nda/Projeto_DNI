@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_sobre.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>DNI AUTOCOM - Sobre</title>
 </head>
 <body>
@@ -12,10 +13,10 @@
         <img src="imagens/LOGOTIPO PADRAO RGB200x80.png" alt="">
     </header>
     <nav>
-        <a href="#">Home</a>
-        <a href="#">Sobre</a>
+        <a href="http://127.0.0.1:5500/index.html">Home</a>
+        <a href="http://127.0.0.1:5500/sobre/sobre.html">Sobre</a>
         <a href="#">Contato</a>
-        <a href="#">Suporte</a>
+        <a href="http://127.0.0.1:5500/suporte/suporte.html">Suporte</a>
     </nav>
 
     <main>
@@ -40,25 +41,13 @@
         <section>
             <h2>Alguns dos nossos Clientes</h2>
             <div class="clientes">
-                <article>
-                    <h3>Rede Vila real</h3>
+                <figure id="slide">
                     <img src="imagens/vila_real.jpg" alt="mercado vila real">
-                </article>
-                <article>
-                    <h3>Mercado Stuk</h3>
-                    <img src="imagens/stuk.jpg" alt="mercado stuk">
-                </article>
-                <article>
-                    <h3>Mercado Loyola</h3>
-                    <img src="imagens/loyola-296x220.jpg" alt="mercado loyola">
-                </article>
-                <article>
-                    <h3>Acougue Gianneti</h3>
-                    <img src="imagens/gianneti-296x220.jpg" alt="açougue gianneti">
-                </article>
-                <article>
-                    <h3>Atacado Leal</h3>
-                    <img src="imagens/leal-296x220.jpeg" alt="atacado leal">
+                        <img src="imagens/stuk.jpg" alt="mercado stuk">
+                        <img src="imagens/loyola-296x220.jpg" alt="mercado loyola">
+                        <img src="imagens/gianneti-296x220.jpg" alt="açougue gianneti">
+                        <img src="imagens/leal-296x220.jpeg" alt="atacado leal">
+                </figure>
                 </article>
             </div>
         </section>
@@ -80,5 +69,29 @@
             <p>&copy;Copyright Dni Autocom Informática 2014 - Automação e Segurança eletrônica - Todos os direitos reservados</p>
         </section>
     </footer>
+
+<script>
+    $(function(){
+
+$('#slide img:eq(0)').addClass("ativo").show();
+setInterval(slide,3000);
+
+function slide(){
+
+    //Se a proxima imagem existir
+    if($('.ativo').next().length){
+
+        //Esconde a 1ª img, remove a classe ativo, mostra a proxima img e adiciona a classe ativo nela
+        $('.ativo').fadeOut().removeClass("ativo").next().fadeIn().addClass("ativo");
+
+    }else{ //Se for a ultima img do carrosel
+
+        //Dá fadeOut na img, remove a classe ativo
+        $('.ativo').fadeOut().removeClass("ativo");
+        //Mostra a 1ª img do carrosel
+        $('#slide img:eq(0)').fadeIn().addClass("ativo");
+    }
+} });
+</script>
 </body>
 </html>
